@@ -4,19 +4,14 @@
   "description": "A project starter using only npm scripts",
   "main": "index.html",
   "scripts": {
-    "clean:build": "rm -rf dist/*",
-    "clean:dev": "rm -rf .tmp/*",
-    "clean": "npm run clean:prod & npm run clean:build",
-    "browsersync:build": "browser-sync start --server --files './' --port 3000 --no-ui",
-    "browsersync:dev": "browser-sync start --server app --files './' --port 3000 --no-ui",
-    "js:dev": "watchify -d -t babelify -t aliasify -t stringify app/scripts/app.js -o app/scripts/bundle.js",
-    "js:build": "browserify -t babelify -t aliasify -t stringify app/scripts/app.js | uglify.js -o dist/scripts/bundle.js",
-    "styles:dev": "stylus -u autoprefixer-stylus -w app/styles/main.styl -o app/styles --sourcemap",
-    "styles:build": "stylus -u autoprefixer-stylus app/styles/main.styl -o dist/styles --compress",
-    "assets:build": "cp app/assets dist/assets & cp app/data dist/data",
-    "views:build": "cp app/index.html dist & cp app/views dist/views",
-    "start": "npm run styles:dev & npm run js:dev & npm run browsersync:dev ",
-    "build": "npm run clean:build & npm run views:build & npm run assets:build & npm run styles:build & npm run js:build & npm run browsersync:build"
+    "clean:build": "rm -rf public/scripts/* & rm -rf public/styles/* & rm -rf public/views/* & rm -rf public/data/* & rm -rf public/assets/*",
+    "browsersync": "browser-sync start --server public --files './' --port 3000 --no-ui",
+    "js:dev": "watchify -d -t babelify -t aliasify -t stringify app/scripts/app.js -o public/scripts/bundle.js",
+    "js:build": "browserify -t babelify -t aliasify -t stringify app/scripts/app.js | uglifyjs -o public/scripts/bundle.js",
+    "styles:dev": "stylus -u autoprefixer-stylus -w app/styles/main.styl -o public/styles --sourcemap",
+    "styles:build": "stylus -u autoprefixer-stylus app/styles/main.styl -o public/styles --compress",
+    "start": "npm run styles:dev & npm run js:dev & npm run browsersync ",
+    "build": "npm run styles:build & npm run js:build & npm run browsersync"
   },
   "repository": {
     "type": "git",
