@@ -5,14 +5,13 @@
  * Take a look at http://browserify.org/ for more info
  */
 
-'use strict';
+export default class Main {
+  constructor() {
 
-function Main() {
-  console.log('main initialized');
+  }
+
+  beep() {
+      console.log('beep');
+      console.log('beepbeep');
+  }
 }
-
-Main.prototype.beep = function () {
-  console.log('hello you !');
-};
-
-module.exports = Main;

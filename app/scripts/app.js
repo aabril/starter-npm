@@ -6,16 +6,9 @@
  * See https://babeljs.io/docs/learn-es2015/ for info on ES6
  */
 
-'use strict';
+import App from './Main';
+import Const from './utils/Const';
 
-// ES5 (default)
-var App = require('./Main.js');
-var Const = require('./utils/Const.js');
-
-// ES6 (careful - do not use 'use strict' statement)
-// import App from './Main';
-// import Const from './utils/Const';
-
-var app = new App();
+let app = new App();
 
 app.beep();

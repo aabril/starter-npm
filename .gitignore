@@ -1,3 +1,6 @@
 node_modules
 dist
 .DS_Store
+app/scripts/bundle.js
+app/styles/main.css
+app/styles/main.css.map
